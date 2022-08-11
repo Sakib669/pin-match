@@ -42,7 +42,7 @@
                                 <div class="button">C</div>
                             </div>
                             <div>
-                                <button type="submit" class="submit-btn" id="submitBtn" onclick="verifyPin()">Submit</button>
+                                <button type="submit" class="submit-btn" id="submitBtn" >Submit</button>
                                 <p class="action-left">3 try left</p>
                             </div>
                     </div>
@@ -62,12 +62,26 @@
             document.getElementById("generateNumbers").value = numberG;
         }
 
+        // document.getElementById("numPad").addEventListener("click", function(event){
+        //     const Number = event.target.innerHTML;
+        //     const numberForm = document.getElementById("numberForm");
+        //     if(isNaN(Number)){
+        //         if(Number == 'C'){
+        //         Number.value = '';
+        //     }
+        //         else{
+        //         const previousNumber = numberForm.value;
+        //         const newNumber = previousNumber + Number;
+        //         Number.value = newNumber;
+        //     }
+        // }
+        // })
 
         var numParArea = document.getElementById("numPad").addEventListener("click", function (event) {
             const getNumber = event.target.innerText;
             const numPadForm = document.getElementById("numberForm");
             if(isNaN(getNumber)) {
-                if(getNumber = "C"){
+                if(getNumber == "C"){
                         numPadArea.value = "";
                     }
             }
@@ -78,12 +92,12 @@
             }
             })
 
-    function verifyPin() {
+    document.getElementById("submitBtn").addEventListener("click", function() {
         const pin = document.getElementById('generateNumbers').value;
-        const typedNumbers = document.getElementById('numberForm').value;
+        const numPadForm = document.getElementById('numberForm').value;
         const successMessage = document.getElementById('pinMatched');
         const failError = document.getElementById('pinNotMatched');
-        if (pin == typedNumbers) {
+        if (pin == numPadForm) {
         successMessage.style.display = 'block';
         failError.style.display = 'none';
         }
@@ -91,7 +105,7 @@
         successMessage.style.display = 'none';
         failError.style.display = 'block';
         }
-}    
+})    
         
     </script>
 </body>
